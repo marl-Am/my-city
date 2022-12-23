@@ -12,6 +12,8 @@ import org.apache.http.util.EntityUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Service
 public class OpenWeatherService {
     @Autowired
@@ -19,6 +21,9 @@ public class OpenWeatherService {
 
     @Autowired
     private ObjectMapper mapper;
+
+    @Value("${API_KEY}")
+    private String API_KEY;
 
     /**
      * This method returns a WeatherData object, otherwise it throws an exception.
@@ -30,14 +35,14 @@ public class OpenWeatherService {
         // API Location: https://api.openweathermap.org/data/2.5/weather?q=
 
         // Replace YOUR_API_KEY with your actual API key
-        String apiKey = "";
+//        String apiKey = "";
         // city is meant to be text input from react search bar
 //        String city = "New York";
         // Replace CITY_NAME with the name of the city you want to get weather data for
         city = city.replace(" ", "%20");
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet request = new HttpGet("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + apiKey);
+        HttpGet request = new HttpGet("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + API_KEY);
         CloseableHttpResponse response = httpClient.execute(request);
 
         try {
