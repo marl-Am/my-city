@@ -1,12 +1,12 @@
 package com.example.mycity.services;
 
 import com.example.mycity.models.WeatherData;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -22,9 +22,6 @@ public class OpenWeatherService {
     @Autowired
     private ObjectMapper mapper;
 
-    @Value("${API_KEY}")
-    private String API_KEY;
-
     /**
      * This method returns a WeatherData object, otherwise it throws an exception.
      *
@@ -35,7 +32,7 @@ public class OpenWeatherService {
         // API Location: https://api.openweathermap.org/data/2.5/weather?q=
 
         // Replace YOUR_API_KEY with your actual API key
-//        String apiKey = "";
+        String API_KEY = "f72851b46afef7c7bbe2d9fba28d1765";
         // city is meant to be text input from react search bar
 //        String city = "New York";
         // Replace CITY_NAME with the name of the city you want to get weather data for

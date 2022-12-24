@@ -14,7 +14,7 @@ public class WeatherController {
     private OpenWeatherService weatherService;
 
     @GetMapping("/weather")
-    public WeatherData getWeather(@RequestParam(value = "city") String city) {
+    public WeatherData getWeather(@RequestParam(value = "city") String city) throws Exception {
         return weatherService.getWeatherData(city);
     }
 }
