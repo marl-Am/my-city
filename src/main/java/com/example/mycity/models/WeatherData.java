@@ -6,8 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WeatherData {
-    private double lon;
-    private double lat;
+//    private double lon;
+//    private double lat;
     private String main;
     private String description;
     private String icon;
@@ -18,9 +18,7 @@ public class WeatherData {
     private int humidity;
     private double windSpeed;
 
-    public WeatherData(double lon, double lat, String main, String description, String icon, double temp, double feelsLike, double tempMin, double tempMax, int humidity, double windSpeed) {
-        this.lon = lon;
-        this.lat = lat;
+    public WeatherData(String main, String description, String icon, double temp, double feelsLike, double tempMin, double tempMax, int humidity, double windSpeed) {
         this.main = main;
         this.description = description;
         this.icon = icon;
