@@ -11,13 +11,11 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 @Service
 public class OpenNewsService {
@@ -33,6 +31,7 @@ public class OpenNewsService {
      * @param  city the text input written in the search bar of the React frontend
      * @return      arraylist of news data objects
      */
+    @CrossOrigin
     public List<NewsData> getNewsDataList(String city) throws Exception {
 
         Map<String, String> properties = PropertiesUtils.getProperties();

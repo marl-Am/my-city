@@ -1,7 +1,7 @@
 ## Mycity
 (COMPLETED)
 
-## [The App's Website](https://password-generator-681b7.web.app/)
+## [The App's Website](mycity-env.eba-rypwjnfp.us-east-1.elasticbeanstalk.com)
 JAVA VERSION
 * Java 17
 

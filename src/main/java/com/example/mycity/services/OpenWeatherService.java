@@ -12,6 +12,7 @@ import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Map;
 
@@ -29,6 +30,7 @@ public class OpenWeatherService {
      * @param  city the text input written in the search bar of the React frontend
      * @return      a singular weatherData object
      */
+    @CrossOrigin
     public WeatherData getWeatherData(String city) throws Exception {
 
         Map<String, String> properties = PropertiesUtils.getProperties();
