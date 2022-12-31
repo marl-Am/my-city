@@ -5,6 +5,9 @@ target/
 !**/src/test/**/target/
 
 # Properties
+.properties
+properties
+application
 application.properties
 application-dev.properties
 

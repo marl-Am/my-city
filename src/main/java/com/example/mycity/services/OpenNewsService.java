@@ -1,6 +1,7 @@
 package com.example.mycity.services;
 
 import com.example.mycity.models.NewsData;
+import com.example.mycity.utility.PropertiesUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -11,8 +12,13 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
 @Service
 public class OpenNewsService {
     @Autowired
@@ -28,14 +34,16 @@ public class OpenNewsService {
      * @return      arraylist of news data objects
      */
     public List<NewsData> getNewsDataList(String city) throws Exception {
-        // Replace YOUR_API_KEY with your actual API key
-        String API_KEY = "";
+
+        Map<String, String> properties = PropertiesUtils.getProperties();
+        String NEWS_API_KEY = properties.get("NEWS_API_KEY.key");
 
         // String city = "New York City"
         city = city.replace(" ", "%20");
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet request = new HttpGet("https://newsdata.io/api/1/news?&apikey=" + API_KEY +
+        HttpGet request = new HttpGet("https://newsdata.io/api/1/news?&apikey=" +
+                NEWS_API_KEY +
                 "&country=us" +
                 "&category=top" +
                 "&language=en" +

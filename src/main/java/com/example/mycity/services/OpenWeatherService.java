@@ -1,6 +1,7 @@
 package com.example.mycity.services;
 
 import com.example.mycity.models.WeatherData;
+import com.example.mycity.utility.PropertiesUtils;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.Map;
 
 @Service
 public class OpenWeatherService {
@@ -27,16 +30,18 @@ public class OpenWeatherService {
      * @return      a singular weatherData object
      */
     public WeatherData getWeatherData(String city) throws Exception {
-        // API Location: https://api.openweathermap.org/data/2.5/weather?q=
 
-        // Replace YOUR_API_KEY with your actual API key
-        String API_KEY = "";
+        Map<String, String> properties = PropertiesUtils.getProperties();
+        String WEATHER_API_KEY = properties.get("WEATHER_API_KEY.key");
 
         // String city = "New York City"
         city = city.replace(" ", "%20");
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet request = new HttpGet("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + API_KEY);
+        HttpGet request = new HttpGet("https://api.openweathermap.org/data/2.5/weather?q=" +
+                city +
+                "&units=imperial" +
+                "&appid=" + WEATHER_API_KEY);
         CloseableHttpResponse response = httpClient.execute(request);
 
         try {

@@ -1,9 +1,22 @@
+## Mycity
 (COMPLETED)
-[The App's Website](https://password-generator-681b7.web.app/)
 
-Spring Boot backend contacts the Weather API and the NewsData.io
-API and displays it to the React frontend.
+## [The App's Website](https://password-generator-681b7.web.app/)
+JAVA VERSION
+* Java 17
 
-![home](/static/images/screenshot1.png)
-![home](/static/images/screenshot2.png)
-![home](/static/images/screenshot3.png)
+Dependencies (SpringBoot):
+* Spring Web
+* Lombok
+* httpclient (org.apache.httpcomponents)
+
+Spring Boot backend contacts the Weather API and the 
+NewsData.io API and displays it to the React frontend. 
+The user can see at most ten articles.
+
+This is the homepage.
+![home](src/main/resources/static/images/screenshot1.png)
+After entering Denver, the weather and news data are displayed.
+![home](src/main/resources/static/images/screenshot2.png)
+The user can now click on one of the links.
+![home](src/main/resources/static/images/screenshot3.png)
