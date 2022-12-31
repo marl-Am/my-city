@@ -31,7 +31,8 @@ public class OpenNewsService {
      * @param  city the text input written in the search bar of the React frontend
      * @return      arraylist of news data objects
      */
-    @CrossOrigin
+
+    @CrossOrigin(origins = "*")
     public List<NewsData> getNewsDataList(String city) throws Exception {
 
         Map<String, String> properties = PropertiesUtils.getProperties();

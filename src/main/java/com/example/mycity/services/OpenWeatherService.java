@@ -30,7 +30,8 @@ public class OpenWeatherService {
      * @param  city the text input written in the search bar of the React frontend
      * @return      a singular weatherData object
      */
-    @CrossOrigin
+
+    @CrossOrigin(origins = "*")
     public WeatherData getWeatherData(String city) throws Exception {
 
         Map<String, String> properties = PropertiesUtils.getProperties();
