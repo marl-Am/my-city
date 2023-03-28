@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Map;
 
 @Service
+@CrossOrigin(origins = "*")
 public class OpenWeatherService {
     @Autowired
     private CloseableHttpClient httpClient;
@@ -31,7 +32,7 @@ public class OpenWeatherService {
      * @return      a singular weatherData object
      */
 
-    @CrossOrigin(origins = "*")
+//    @CrossOrigin(origins = "*")
     public WeatherData getWeatherData(String city) throws Exception {
 
         Map<String, String> properties = PropertiesUtils.getProperties();

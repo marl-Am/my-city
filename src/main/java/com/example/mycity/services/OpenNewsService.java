@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@CrossOrigin(origins = "*")
 public class OpenNewsService {
     @Autowired
     private CloseableHttpClient httpClient;
@@ -32,7 +33,7 @@ public class OpenNewsService {
      * @return      arraylist of news data objects
      */
 
-    @CrossOrigin(origins = "*")
+//    @CrossOrigin(origins = "*")
     public List<NewsData> getNewsDataList(String city) throws Exception {
 
         Map<String, String> properties = PropertiesUtils.getProperties();

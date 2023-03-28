@@ -4,6 +4,13 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+.gcloudignore
+gcloudignore
+target
+.firebase
+.firebaserc
+firebase.json
+firebase
 # Properties
 .properties
 properties

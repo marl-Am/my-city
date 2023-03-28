@@ -1,7 +1,6 @@
 ## Mycity
 (COMPLETED)
 
-## [The App's Website](http://mycity-env.eba-rypwjnfp.us-east-1.elasticbeanstalk.com)
 JAVA VERSION
 * Java 17
 
